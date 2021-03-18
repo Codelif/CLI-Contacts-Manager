@@ -3,6 +3,9 @@ import csv
 import sys
 import os
 import getopt
+import csv_functions
+from handy import make_bold, title_text_ascii_art
+from command_shell import parse_commands
 
 def parse_args(argv):
     inputfile = ''
@@ -22,23 +25,17 @@ def parse_args(argv):
             outputfile = arg
     return [inputfile, outputfile]
 
-def take_csv_inputs():
-    list_inputs = [input().replace(" ", "").split(",")]
-    while list_inputs[-1] != "done":
-        a = input()
-        if a.lower() == "done":
-            list_inputs.append("done")
-            continue
-        list_inputs.append(a.replace(" ", "").split(","))
-    list_inputs.pop(-1)
-    return list_inputs
+def main():
+    print(title_text_ascii_art)
+    print("Type '.help' to get command list")
+    
+    while True:
+        print(">> ", end="")
+        cmd_inputs = input()
+        parse_commands(cmd_inputs)
 
-def csv_writer(file, inputs):
-    csvfile = open(file, "a+", newline='')
-    csv_writer_init = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    for row in inputs:
-        csv_writer_init.writerow(row)
-    csvfile.close() 
+
 
 if __name__ == "__main__":
-    csv_writer(parse_args(sys.argv[1:])[1], take_csv_inputs())
+    # csv_functions.csv_writer(parse_args(sys.argv[1:])[1], csv_functions.take_csv_inputs())
+    main()
