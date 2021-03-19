@@ -1,6 +1,5 @@
 import csv
-import handy
-
+from handy import get_random_string
 
 def take_csv_inputs():
     list_inputs = [input().replace(" ", "").split(",")]
@@ -25,8 +24,10 @@ def addlist(raw):
     if len(command_list) != 2:
         print(f"The command {command_list[0]} needs 1 argument {len(command_list)-1} were given")
         return
-    f = open("tmp/{}".format())
-    
+    f = open(command_list[1], "w+")
+    f.close()
+    f = open("mem.json", "w+")
+
 
 
 
