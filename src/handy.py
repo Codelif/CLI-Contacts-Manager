@@ -18,3 +18,8 @@ def make_bold(raw_str):
 def get_random_string(length=30):
     return "".join([random.choice(string.ascii_lowercase + string.digits) for i in range(length)])
 
+def number_args(raw, args_no):
+    command_list = raw.split()
+    if len(command_list) != args_no-1:
+        print(f"The command {command_list[0]} needs {args_no-1} argument{"s" if args_no-1 > 1 else ""} {len(command_list)-1} were given")
+        return

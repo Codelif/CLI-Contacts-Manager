@@ -22,8 +22,8 @@ def parse_commands(raw_command):
         sys.exit(0)
     elif command == ".al" or command == "addlist":
         csv_functions.addlist(raw_command)
-    elif command == ".o" or command == "open":
-        pass
+    elif command == ".ad" or command == "adddata":
+        csv_functions.take_csv_inputs()
     elif command == "cls" or command == "clear":
         os.system("cls")
     else:

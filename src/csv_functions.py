@@ -26,8 +26,7 @@ def addlist(raw):
         return
     f = open(command_list[1], "w+")
     f.close()
-    f = open("mem.json", "w+")
-
+    
 
 
 
